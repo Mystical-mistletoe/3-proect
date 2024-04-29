@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+    <a href="news" class="btn btn-secondary">Добавить анкету</a>
+{% endif %}
+
+<h1>Журнал</h1>
+{% for item in jobs%}
+<div class="col-md6 border rounded">
+    <h2>{{item.id}}</h2>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Админ</th>
+      <th scope="col">ФИО</th>
+      <th scope="col">возраст</th>
+      <th scope="col">Силы/слабости</th>
+      <th scope="col">Био/характер/внешность</th>
+      <th scope="col">в бункере?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> {{item.team_lead.name}}  {{item.team_lead.surname}}</td>
+      <td> {{item.namep}}</td>
+      <td> {{item.size}}</td>
+      <td> {{item.boost}}</td>
+      <td> {{item.biograph}}</td>
+        {% if item.is_finished %}
+      <td>живет</td>
+        {% else %}
+      <td> не живет</td>
+        {% endif %}
+    </tr>
+  </tbody>
+</table>
+{% if current_user.is_authenticated and current_user == item.user or current_user.is_authenticated and current_user.id == 1 %}
+    <div>
+        <a href="/news/{{ item.id }}" class="btn btn-warning">
+            Изменить
+        </a>
+        <a href="/news_delete/{{ item.id }}" class="btn btn-danger">
+            Удалить
+        </a>
+    </div>
+{% endif %}
+
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Добавление участника</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+
+    
+    <p>
+        <td> {{form.team_lead.name}}  {{form.team_lead.surname}}</td>
+        {% for error in form.team_lead.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{form.namep.label}}<br>
+        {{form.namep}}<br>
+        {% for error in form.namep.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{form.boost.label}}<br>
+        {{form.boost}} <br>
+        {% for error in form.boost.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{form.biograph.label}}<br>
+        {{form.biograph}}<br>
+        {% for error in form.biograph.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+
+    <p>
+        {{ form.size.label }}<br>
+        {{ form.size(class="form-control") }}<br>
+        {% for error in form.size.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+
+    <p>
+        {{ form.is_finished.label }}<br>
+        {{ form.is_finished}}<br>
+        {% for error in form.is_finished.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}

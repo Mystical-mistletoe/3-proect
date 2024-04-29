@@ -1,0 +1,42 @@
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 400px; 
+
+    white-space: pre-wrap;
+  }
+table td, th {
+    padding: 30px;
+    color: white;
+
+    white-space:pre-wrap;
+    }
+table tr { height:1em;
+}
+  caption {
+    font-size: 1.5rem;
+    padding: 10px;
+    color: #ffffff;
+   }
+  
+  h6 {
+  margin: 1.5rem;
+  }
+  
+  th {
+    padding: 10px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+
+  }
+  td {
+    font-size: 0.8em;
+    padding: 5px 7px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+  }
+
+  body {
+  background: url("img/1background-image.jpg");
+
+}
